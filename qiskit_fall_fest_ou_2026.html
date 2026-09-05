@@ -1,0 +1,2866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Qiskit Fall Fest at the University of Oklahoma — quantum information, computation, Qiskit, educational resources, and community."
+  >
+
+  <title>Qiskit Fall Fest · OU</title>
+
+  <style>
+
+    /* =========================================================
+       QISKIT FALL FEST · UNIVERSITY OF OKLAHOMA
+       ========================================================= */
+
+    :root {
+      --bg: #080b0e;
+      --bg-light: #0d1216;
+      --panel: #10161b;
+      --panel-light: #141b21;
+
+      --text: #f2f6f8;
+      --muted: #9ca8b1;
+
+      --line: rgba(220, 235, 245, 0.13);
+      --line-strong: rgba(220, 235, 245, 0.25);
+
+      --glass: rgba(255,255,255,0.035);
+      --glow: rgba(185, 220, 240, 0.18);
+
+      --max-width: 1180px;
+    }
+
+
+    /* =========================================================
+       RESET
+       ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(
+          circle at 80% 10%,
+          rgba(170,205,225,0.06),
+          transparent 35%
+        ),
+        var(--bg);
+
+      color: var(--text);
+
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    /* =========================================================
+       CONTAINER
+       ========================================================= */
+
+    .container {
+      width: min(
+        var(--max-width),
+        calc(100% - 48px)
+      );
+
+      margin: 0 auto;
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    .nav {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      z-index: 1000;
+
+      background: rgba(7,10,13,.76);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid var(--line);
+
+      transition: background .3s ease;
+    }
+
+    .nav-inner {
+      height: 76px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 28px;
+    }
+
+    .brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing: .16em;
+
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 18px;
+      height: 18px;
+
+      border: 1px solid rgba(230,240,247,.75);
+
+      transform: rotate(45deg);
+
+      position: relative;
+    }
+
+    .brand-mark::after {
+      content: "";
+
+      position: absolute;
+
+      width: 6px;
+      height: 6px;
+
+      top: 5px;
+      left: 5px;
+
+      background: rgba(230,240,247,.8);
+    }
+
+    .nav-links {
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+
+      margin-left: auto;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      transition:
+        color .25s ease,
+        transform .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: white;
+
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      border: 1px solid var(--line-strong);
+
+      padding: 10px 18px;
+
+      font-size: 12px;
+
+      font-weight: 600;
+
+      letter-spacing: .08em;
+
+      transition: .25s ease;
+    }
+
+    .nav-cta:hover {
+      background: white;
+
+      color: #080b0e;
+
+      border-color: white;
+    }
+
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+
+      align-items: center;
+
+      position: relative;
+
+      overflow: hidden;
+
+      padding-top: 76px;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          rgba(7,10,13,.99) 0%,
+          rgba(7,10,13,.91) 36%,
+          rgba(7,10,13,.52) 65%,
+          rgba(7,10,13,.88) 100%
+        ),
+
+        radial-gradient(
+          circle at 78% 48%,
+          rgba(190,220,238,.12),
+          transparent 25%
+        ),
+
+        linear-gradient(
+          135deg,
+          #070a0d,
+          #11171c
+        );
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      opacity: .14;
+
+      background-image:
+
+        linear-gradient(
+          rgba(220,235,245,.12) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(220,235,245,.12) 1px,
+          transparent 1px
+        );
+
+      background-size: 48px 48px;
+    }
+
+
+    /* HERO MACHINE */
+
+    .hero-machine {
+      position: absolute;
+
+      width: 600px;
+      height: 600px;
+
+      right: -30px;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      opacity: .75;
+
+      pointer-events: none;
+    }
+
+    .machine-ring {
+      position: absolute;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(210,230,240,.18);
+
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%,-50%);
+    }
+
+    .ring-1 {
+      width: 420px;
+      height: 420px;
+    }
+
+    .ring-2 {
+      width: 310px;
+      height: 310px;
+
+      border-style: dashed;
+
+      animation: spin 35s linear infinite;
+    }
+
+    .ring-3 {
+      width: 200px;
+      height: 200px;
+    }
+
+    @keyframes spin {
+
+      from {
+        transform:
+          translate(-50%,-50%)
+          rotate(0deg);
+      }
+
+      to {
+        transform:
+          translate(-50%,-50%)
+          rotate(360deg);
+      }
+
+    }
+
+    .quantum-chip {
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      top: 50%;
+      left: 50%;
+
+      transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+
+      border: 1px solid rgba(225,240,248,.55);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.08),
+          rgba(255,255,255,.01)
+        );
+
+      box-shadow:
+        0 0 70px rgba(190,220,240,.15);
+    }
+
+    .quantum-chip::before,
+    .quantum-chip::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 22px;
+
+      border: 1px solid rgba(225,240,248,.25);
+    }
+
+    .quantum-chip::after {
+      inset: 48px;
+
+      background: rgba(220,235,245,.1);
+    }
+
+
+    /* HERO CONTENT */
+
+    .hero-content {
+      width: 650px;
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+    .kicker {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      color: #c7d1d8;
+
+      font-size: 11px;
+
+      font-weight: 600;
+
+      letter-spacing: .20em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 30px;
+    }
+
+    .kicker::before {
+      content: "";
+
+      width: 34px;
+      height: 1px;
+
+      background: rgba(220,235,245,.55);
+    }
+
+    .hero h1 {
+      font-size:
+        clamp(
+          72px,
+          9vw,
+          138px
+        );
+
+      line-height: .82;
+
+      letter-spacing: -.075em;
+
+      font-weight: 500;
+
+      margin-bottom: 42px;
+    }
+
+    .hero p {
+      width: min(540px,100%);
+
+      font-size: 18px;
+
+      line-height: 1.75;
+
+      color: var(--muted);
+
+      margin-bottom: 38px;
+    }
+
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    .actions {
+      display: flex;
+
+      gap: 14px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 50px;
+
+      padding: 0 24px;
+
+      border: 1px solid var(--line-strong);
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      transition:
+        background .25s ease,
+        color .25s ease,
+        border .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.primary {
+      background: #eef3f6;
+
+      color: #080b0e;
+
+      border-color: #eef3f6;
+    }
+
+    .btn.primary:hover {
+      background: white;
+
+      box-shadow:
+        0 0 35px rgba(220,235,245,.16);
+    }
+
+    .btn.ghost {
+      background: rgba(255,255,255,.025);
+
+      color: #e8eef2;
+    }
+
+    .btn.ghost:hover {
+      background: rgba(255,255,255,.07);
+    }
+
+
+    .hero-meta {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 30px;
+
+      margin-top: 58px;
+
+      color: #7f8c95;
+
+      font-size: 11px;
+
+      letter-spacing: .10em;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       GENERAL SECTIONS
+       ========================================================= */
+
+    .section {
+      padding: 130px 0;
+
+      position: relative;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      color: #7f8d96;
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      letter-spacing: .24em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 25px;
+    }
+
+    .section h2 {
+      font-size:
+        clamp(
+          40px,
+          5vw,
+          70px
+        );
+
+      line-height: 1.03;
+
+      letter-spacing: -.045em;
+
+      font-weight: 500;
+
+      max-width: 900px;
+    }
+
+    .lead {
+      color: var(--muted);
+
+      font-size: 19px;
+
+      line-height: 1.8;
+
+      max-width: 760px;
+
+      margin-top: 35px;
+    }
+
+
+    /* =========================================================
+       ABOUT
+       ========================================================= */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.25fr .75fr;
+
+      gap: 90px;
+
+      align-items: end;
+    }
+
+    .about-number {
+      font-size: 150px;
+
+      line-height: 1;
+
+      font-weight: 300;
+
+      letter-spacing: -.08em;
+
+      color: rgba(225,235,242,.08);
+
+      text-align: right;
+    }
+
+
+    /* =========================================================
+       PROGRAM
+       ========================================================= */
+
+    .program-section {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.015),
+          transparent
+        );
+    }
+
+    .cards {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      margin-top: 65px;
+
+      border-top: 1px solid var(--line);
+
+      border-left: 1px solid var(--line);
+    }
+
+    .card {
+      min-height: 330px;
+
+      padding: 40px;
+
+      border-right: 1px solid var(--line);
+
+      border-bottom: 1px solid var(--line);
+
+      position: relative;
+
+      overflow: hidden;
+
+      background: rgba(255,255,255,.012);
+
+      transition:
+        transform .35s ease,
+        background .35s ease;
+    }
+
+    .card:hover {
+      background: rgba(255,255,255,.035);
+
+      transform: translateY(-4px);
+    }
+
+    .icon {
+      color: #74818a;
+
+      font-size: 11px;
+
+      letter-spacing: .15em;
+
+      margin-bottom: 110px;
+    }
+
+    .card h3 {
+      font-size: 26px;
+
+      font-weight: 500;
+
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+    }
+
+
+    /* =========================================================
+       TECH FEATURE
+       ========================================================= */
+
+    .tech-feature {
+      min-height: 500px;
+
+      margin-top: 70px;
+
+      border: 1px solid var(--line);
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(190,220,238,.08),
+          transparent 32%
+        ),
+
+        #090d10;
+    }
+
+    .tech-feature::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      opacity: .18;
+
+      background-image:
+
+        linear-gradient(
+          rgba(220,235,245,.12) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(220,235,245,.12) 1px,
+          transparent 1px
+        );
+
+      background-size: 35px 35px;
+    }
+
+    .feature-circle {
+      width: 320px;
+      height: 320px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(220,235,245,.20);
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%,-50%);
+    }
+
+    .feature-circle::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 45px;
+
+      border-radius: 50%;
+
+      border:
+        1px dashed
+        rgba(220,235,245,.20);
+    }
+
+    .feature-circle::after {
+      content: "";
+
+      position: absolute;
+
+      width: 100px;
+      height: 100px;
+
+      top: 50%;
+      left: 50%;
+
+      transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+
+      border:
+        1px solid rgba(220,235,245,.6);
+
+      background:
+        rgba(220,235,245,.035);
+
+      box-shadow:
+        0 0 60px rgba(190,220,240,.13);
+    }
+
+
+    /* =========================================================
+       EVENT SCHEDULE
+       ========================================================= */
+
+    .event-details {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 14px;
+
+      margin-top: 55px;
+    }
+
+    .detail-box {
+      border: 1px solid var(--line);
+
+      background: rgba(255,255,255,.015);
+
+      padding: 25px;
+
+      min-height: 135px;
+    }
+
+    .detail-label {
+      color: #71808a;
+
+      font-size: 10px;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 12px;
+    }
+
+    .detail-value {
+      font-size: 16px;
+
+      color: #e9eef1;
+
+      line-height: 1.55;
+    }
+
+
+    .schedule {
+      margin-top: 65px;
+
+      position: relative;
+    }
+
+    .schedule::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+
+      left: 100px;
+
+      width: 1px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(220,235,245,.03),
+          rgba(220,235,245,.30),
+          rgba(220,235,245,.03)
+        );
+    }
+
+
+    .schedule-item {
+      display: grid;
+
+      grid-template-columns:
+        200px 1fr;
+
+      gap: 50px;
+
+      min-height: 190px;
+
+      padding: 35px 0;
+
+      border-top: 1px solid var(--line);
+
+      position: relative;
+
+      transition:
+        padding-left .3s ease,
+        background .3s ease;
+    }
+
+    .schedule-item:last-child {
+      border-bottom:
+        1px solid var(--line);
+    }
+
+    .schedule-item:hover {
+      padding-left: 10px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.02),
+          transparent
+        );
+    }
+
+
+    .schedule-marker {
+      position: absolute;
+
+      width: 9px;
+      height: 9px;
+
+      left: 96px;
+      top: 63px;
+
+      background: #dce6ec;
+
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 20px rgba(220,235,245,.28);
+    }
+
+
+    .schedule-date {
+      padding-right: 35px;
+    }
+
+    .schedule-month {
+      color: #71808a;
+
+      font-size: 10px;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 5px;
+    }
+
+    .schedule-day {
+      font-size: 42px;
+
+      line-height: 1;
+
+      font-weight: 300;
+
+      letter-spacing: -.04em;
+    }
+
+    .schedule-year {
+      color: #6f7c84;
+
+      font-size: 11px;
+
+      margin-top: 8px;
+    }
+
+
+    .schedule-content {
+      padding-left: 25px;
+    }
+
+    .session-number {
+      color: #74818a;
+
+      font-size: 10px;
+
+      letter-spacing: .20em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 12px;
+    }
+
+    .schedule-item h3 {
+      font-size:
+        clamp(
+          23px,
+          3vw,
+          33px
+        );
+
+      font-weight: 500;
+
+      line-height: 1.25;
+
+      letter-spacing: -.025em;
+
+      max-width: 720px;
+    }
+
+    .schedule-meta {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 25px;
+
+      margin-top: 18px;
+
+      color: #85939c;
+
+      font-size: 12px;
+    }
+
+
+    /* REFRESHMENT NOTE */
+
+    .refreshments {
+      margin-top: 45px;
+
+      border: 1px solid var(--line);
+
+      padding: 28px 30px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 35px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.025),
+          rgba(255,255,255,.005)
+        );
+    }
+
+    .refreshment-label {
+      color: #76848d;
+
+      font-size: 10px;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 8px;
+    }
+
+    .refreshments h3 {
+      font-size: 20px;
+
+      font-weight: 500;
+    }
+
+    .refreshments p {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      margin-top: 5px;
+    }
+
+
+    /* =========================================================
+       CHALLENGE
+       ========================================================= */
+
+    .challenge-layout {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 90px;
+
+      align-items: center;
+    }
+
+    .challenge-art {
+      aspect-ratio: 1/1;
+
+      border: 1px solid var(--line);
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(190,220,240,.09),
+          transparent 45%
+        );
+    }
+
+    .challenge-art::before {
+      content: "";
+
+      position: absolute;
+
+      width: 55%;
+      height: 55%;
+
+      top: 50%;
+      left: 50%;
+
+      transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+
+      border:
+        1px solid rgba(220,235,245,.35);
+    }
+
+    .challenge-art::after {
+      content: "";
+
+      position: absolute;
+
+      width: 34%;
+      height: 34%;
+
+      top: 50%;
+      left: 50%;
+
+      transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+
+      border:
+        1px dashed rgba(220,235,245,.28);
+    }
+
+    .challenge-copy p {
+      color: var(--muted);
+
+      font-size: 17px;
+
+      line-height: 1.8;
+
+      margin:
+        28px 0 35px;
+
+      max-width: 520px;
+    }
+
+
+    /* =========================================================
+       EDUCATIONAL TOOLS
+       ========================================================= */
+
+    .resource-intro {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 60px;
+
+      margin-top: 35px;
+    }
+
+    .resource-intro p {
+      color: var(--muted);
+
+      line-height: 1.8;
+    }
+
+    .resources {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2,1fr);
+
+      gap: 18px;
+
+      margin-top: 65px;
+    }
+
+    .resource {
+      min-height: 190px;
+
+      padding: 30px;
+
+      border: 1px solid var(--line);
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+
+      gap: 30px;
+
+      transition:
+        background .25s ease,
+        border .25s ease,
+        transform .25s ease;
+    }
+
+    .resource:hover {
+      background:
+        rgba(255,255,255,.035);
+
+      border-color:
+        var(--line-strong);
+
+      transform:
+        translateY(-3px);
+    }
+
+    .resource-top {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .resource-number {
+      font-size: 10px;
+
+      color: #70808a;
+
+      letter-spacing: .16em;
+    }
+
+    .resource-arrow {
+      color: #8d9ba4;
+
+      font-size: 22px;
+    }
+
+    .resource h3 {
+      font-size: 21px;
+
+      font-weight: 500;
+
+      margin-bottom: 8px;
+    }
+
+    .resource p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       REGISTER
+       ========================================================= */
+
+    .rsvp {
+      text-align: center;
+
+      padding:
+        160px 0
+        150px;
+
+      overflow: hidden;
+    }
+
+    .rsvp::before {
+      content: "";
+
+      position: absolute;
+
+      width: 700px;
+      height: 700px;
+
+      border-radius: 50%;
+
+      left: 50%;
+      top: 50%;
+
+      transform:
+        translate(-50%,-50%);
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(195,220,235,.06),
+          transparent 65%
+        );
+    }
+
+    .rsvp h2 {
+      margin: 0 auto;
+
+      max-width: 800px;
+    }
+
+    .rsvp p {
+      color: var(--muted);
+
+      max-width: 600px;
+
+      margin:
+        30px auto
+        40px;
+
+      font-size: 17px;
+    }
+
+
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 80px;
+
+      align-items: start;
+    }
+
+    .contact-copy p {
+      color: var(--muted);
+
+      font-size: 17px;
+
+      line-height: 1.8;
+
+      margin-top: 30px;
+
+      max-width: 600px;
+    }
+
+    .contact-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-item {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+
+      padding: 26px 0;
+
+      border-bottom: 1px solid var(--line);
+
+      transition:
+        padding-left .25s ease,
+        color .25s ease;
+    }
+
+    .contact-item:hover {
+      padding-left: 10px;
+
+      color: white;
+    }
+
+    .contact-email {
+      font-size: 17px;
+    }
+
+    .contact-arrow {
+      color: #77858e;
+
+      font-size: 20px;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      border-top: 1px solid var(--line);
+
+      padding: 35px 0;
+
+      color: #6f7c84;
+
+      font-size: 11px;
+
+      letter-spacing: .08em;
+
+      text-transform: uppercase;
+    }
+
+    .footer-inner {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 30px;
+
+      flex-wrap: wrap;
+    }
+
+
+    /* =========================================================
+       ANIMATION
+       ========================================================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(25px);
+
+      transition:
+        opacity .85s ease,
+        transform .85s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-machine {
+        opacity: .30;
+
+        right: -250px;
+      }
+
+      .about-grid,
+      .challenge-layout,
+      .resource-intro,
+      .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+      }
+
+      .about-number {
+        text-align: left;
+      }
+
+      .cards,
+      .event-details,
+      .resources {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      .container {
+        width:
+          min(
+            calc(100% - 30px),
+            var(--max-width)
+          );
+      }
+
+      .nav-inner {
+        height: 68px;
+      }
+
+      .brand {
+        font-size: 10px;
+      }
+
+      .nav-cta {
+        padding: 8px 13px;
+      }
+
+      .hero {
+        padding-top: 68px;
+      }
+
+      .hero h1 {
+        font-size: 65px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .hero-meta {
+        flex-direction: column;
+
+        gap: 14px;
+      }
+
+      .section {
+        padding: 90px 0;
+      }
+
+      .about-number {
+        font-size: 100px;
+      }
+
+
+      /* MOBILE SCHEDULE */
+
+      .schedule::before {
+        display: none;
+      }
+
+      .schedule-item {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding:
+          35px 0;
+      }
+
+      .schedule-marker {
+        display: none;
+      }
+
+      .schedule-date {
+        padding-right: 0;
+      }
+
+      .schedule-day {
+        font-size: 35px;
+      }
+
+      .schedule-content {
+        padding-left: 0;
+      }
+
+      .refreshments {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+      .contact-email {
+        font-size: 14px;
+      }
+
+    }
+
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav class="nav">
+
+  <div class="container nav-inner">
+
+    <a
+      href="#top"
+      class="brand"
+    >
+
+      <span class="brand-mark"></span>
+
+      <span>
+        QISKIT FALL FEST · OU
+      </span>
+
+    </a>
+
+
+    <div class="nav-links">
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#program">
+        Program
+      </a>
+
+      <a href="#schedule">
+        Schedule
+      </a>
+
+      <a href="#challenge">
+        Challenge
+      </a>
+
+      <a href="#resources">
+        Educational Tools
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+    </div>
+
+
+    <a
+      class="nav-cta"
+      href="https://forms.gle/TqexJjrPTpNmKa6V8"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      REGISTER
+    </a>
+
+  </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<header
+  class="hero"
+  id="top"
+>
+
+  <div class="hero-machine">
+
+    <div class="machine-ring ring-1"></div>
+
+    <div class="machine-ring ring-2"></div>
+
+    <div class="machine-ring ring-3"></div>
+
+    <div class="quantum-chip"></div>
+
+  </div>
+
+
+  <div class="container">
+
+    <div class="hero-content reveal">
+
+      <div class="kicker">
+        University of Oklahoma · 2026
+      </div>
+
+
+      <h1>
+        Think in<br>
+        quantum.
+      </h1>
+
+
+      <p>
+
+        Explore quantum information and computation
+        through workshops, learning opportunities,
+        hands-on activities, and collaborative challenges
+        with students across the University of Oklahoma.
+
+      </p>
+
+
+      <div class="actions">
+
+        <a
+          class="btn primary"
+          href="https://forms.gle/TqexJjrPTpNmKa6V8"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Register now
+        </a>
+
+
+        <a
+          class="btn ghost"
+          href="#schedule"
+        >
+          View schedule
+        </a>
+
+      </div>
+
+
+      <div class="hero-meta">
+
+        <span>
+          October–November 2026
+        </span>
+
+        <span>
+          Norman, Oklahoma
+        </span>
+
+        <span>
+          Open to students
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     ABOUT
+     ========================================================= -->
+
+<section
+  class="section"
+  id="about"
+>
+
+  <div class="container">
+
+    <div class="about-grid">
+
+      <div class="reveal">
+
+        <div class="section-label">
+          01 / About Us
+        </div>
+
+
+        <h2>
+          Who we are and what we do.
+        </h2>
+
+
+        <p class="lead">
+
+          We are a team of students passionate about exploring
+          quantum information and computation. Our goal is to build
+          a community of like-minded learners across the University
+          of Oklahoma and its surrounding areas who are excited to
+          join us on this journey into the world of quantum technologies.
+
+        </p>
+
+      </div>
+
+
+      <div class="about-number reveal">
+        Q
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROGRAM
+     ========================================================= -->
+
+<section
+  class="section program-section"
+  id="program"
+>
+
+  <div class="container">
+
+    <div class="section-label reveal">
+      02 / Program
+    </div>
+
+
+    <h2 class="reveal">
+      Learn it. Build it. Explore it.
+    </h2>
+
+
+    <p class="lead reveal">
+
+      Whether you are completely new to quantum computing
+      or already exploring quantum technologies, Fall Fest
+      is designed to help you learn, experiment, collaborate,
+      and discover new ideas.
+
+    </p>
+
+
+    <div class="cards">
+
+
+      <article class="card reveal">
+
+        <div class="icon">
+          01
+        </div>
+
+        <h3>
+          Learn
+        </h3>
+
+        <p>
+
+          Explore the foundations of quantum information,
+          computation, qubits, gates, measurement,
+          and quantum circuits.
+
+        </p>
+
+      </article>
+
+
+
+      <article class="card reveal">
+
+        <div class="icon">
+          02
+        </div>
+
+        <h3>
+          Build
+        </h3>
+
+        <p>
+
+          Gain hands-on experience using Qiskit,
+          quantum circuits, simulators, and modern
+          quantum computing tools.
+
+        </p>
+
+      </article>
+
+
+
+      <article class="card reveal">
+
+        <div class="icon">
+          03
+        </div>
+
+        <h3>
+          Collaborate
+        </h3>
+
+        <p>
+
+          Meet students with similar interests,
+          work through challenges together,
+          and help grow a quantum community at OU.
+
+        </p>
+
+      </article>
+
+
+    </div>
+
+
+    <div class="tech-feature reveal">
+
+      <div class="feature-circle"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EVENT SCHEDULE
+     ========================================================= -->
+
+<section
+  class="section"
+  id="schedule"
+>
+
+  <div class="container">
+
+
+    <div class="section-label reveal">
+      03 / Event Schedule
+    </div>
+
+
+    <h2 class="reveal">
+      Four sessions. One quantum journey.
+    </h2>
+
+
+    <p class="lead reveal">
+
+      Join us throughout Fall 2026 for four sessions
+      designed to introduce quantum information,
+      build mathematical foundations, explore Qiskit,
+      and help you discover where quantum technologies
+      can take you next.
+
+    </p>
+
+
+
+    <!-- EVENT DETAILS -->
+
+    <div class="event-details">
+
+
+      <div class="detail-box reveal">
+
+        <div class="detail-label">
+          Venue
+        </div>
+
+        <div class="detail-value">
+
+          Physical Sciences Center<br>
+          Room 1105
+
+        </div>
+
+      </div>
+
+
+
+      <div class="detail-box reveal">
+
+        <div class="detail-label">
+          Time
+        </div>
+
+        <div class="detail-value">
+
+          5:30 PM – 7:00 PM<br>
+          Each session
+
+        </div>
+
+      </div>
+
+
+
+      <div class="detail-box reveal">
+
+        <div class="detail-label">
+          Refreshments
+        </div>
+
+        <div class="detail-value">
+
+          Pizza &amp; soda<br>
+          Light refreshments provided
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- SCHEDULE TIMELINE -->
+
+    <div class="schedule">
+
+
+      <!-- SESSION 1 -->
+
+      <div class="schedule-item reveal">
+
+        <div class="schedule-marker"></div>
+
+
+        <div class="schedule-date">
+
+          <div class="schedule-month">
+            October
+          </div>
+
+          <div class="schedule-day">
+            07
+          </div>
+
+          <div class="schedule-year">
+            2026
+          </div>
+
+        </div>
+
+
+        <div class="schedule-content">
+
+          <div class="session-number">
+            Session 01
+          </div>
+
+
+          <h3>
+
+            Quantum Information and Computation:
+            An Overview
+
+          </h3>
+
+
+          <div class="schedule-meta">
+
+            <span>
+              5:30 PM – 7:00 PM
+            </span>
+
+            <span>
+              PSC Room 1105
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SESSION 2 -->
+
+      <div class="schedule-item reveal">
+
+        <div class="schedule-marker"></div>
+
+
+        <div class="schedule-date">
+
+          <div class="schedule-month">
+            October
+          </div>
+
+          <div class="schedule-day">
+            21
+          </div>
+
+          <div class="schedule-year">
+            2026
+          </div>
+
+        </div>
+
+
+        <div class="schedule-content">
+
+          <div class="session-number">
+            Session 02
+          </div>
+
+
+          <h3>
+
+            Mathematical Foundations
+            of Quantum Computation
+
+          </h3>
+
+
+          <div class="schedule-meta">
+
+            <span>
+              5:30 PM – 7:00 PM
+            </span>
+
+            <span>
+              PSC Room 1105
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SESSION 3 -->
+
+      <div class="schedule-item reveal">
+
+        <div class="schedule-marker"></div>
+
+
+        <div class="schedule-date">
+
+          <div class="schedule-month">
+            November
+          </div>
+
+          <div class="schedule-day">
+            04
+          </div>
+
+          <div class="schedule-year">
+            2026
+          </div>
+
+        </div>
+
+
+        <div class="schedule-content">
+
+          <div class="session-number">
+            Session 03
+          </div>
+
+
+          <h3>
+
+            Qiskit &amp; Quantum Computation
+
+          </h3>
+
+
+          <div class="schedule-meta">
+
+            <span>
+              5:30 PM – 7:00 PM
+            </span>
+
+            <span>
+              PSC Room 1105
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SESSION 4 -->
+
+      <div class="schedule-item reveal">
+
+        <div class="schedule-marker"></div>
+
+
+        <div class="schedule-date">
+
+          <div class="schedule-month">
+            November
+          </div>
+
+          <div class="schedule-day">
+            18
+          </div>
+
+          <div class="schedule-year">
+            2026
+          </div>
+
+        </div>
+
+
+        <div class="schedule-content">
+
+          <div class="session-number">
+            Session 04
+          </div>
+
+
+          <h3>
+
+            Your Quantum Roadmap:
+            Tools, Trends &amp; Opportunities
+
+          </h3>
+
+
+          <div class="schedule-meta">
+
+            <span>
+              5:30 PM – 7:00 PM
+            </span>
+
+            <span>
+              PSC Room 1105
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- REFRESHMENTS -->
+
+    <div class="refreshments reveal">
+
+      <div>
+
+        <div class="refreshment-label">
+          During each session
+        </div>
+
+        <h3>
+          Light refreshments will be provided.
+        </h3>
+
+        <p>
+          Pizza and soda will be available for participants.
+        </p>
+
+      </div>
+
+
+      <a
+        class="btn ghost"
+        href="https://forms.gle/TqexJjrPTpNmKa6V8"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Register for Fall Fest
+      </a>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CHALLENGE
+     ========================================================= -->
+
+<section
+  class="section"
+  id="challenge"
+>
+
+  <div class="container">
+
+    <div class="challenge-layout">
+
+
+      <div class="challenge-art reveal"></div>
+
+
+      <div class="challenge-copy reveal">
+
+        <div class="section-label">
+          04 / Challenge
+        </div>
+
+
+        <h2>
+          Curious is enough to start.
+        </h2>
+
+
+        <p>
+
+          Fall Fest challenges give participants an opportunity
+          to turn ideas into practice. Explore quantum circuits,
+          collaborate with other students, apply concepts introduced
+          during the event, and experiment with quantum computing
+          tools in a welcoming environment.
+
+        </p>
+
+
+        <a
+          class="btn ghost"
+          href="https://forms.gle/TqexJjrPTpNmKa6V8"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join Fall Fest
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EDUCATIONAL TOOLS
+     ========================================================= -->
+
+<section
+  class="section"
+  id="resources"
+>
+
+  <div class="container">
+
+
+    <div class="section-label reveal">
+      05 / Educational Tools
+    </div>
+
+
+    <h2 class="reveal">
+      Keep exploring.
+    </h2>
+
+
+    <div class="resource-intro reveal">
+
+      <p>
+
+        Quantum computing is a rapidly developing field,
+        and there is always more to explore. These resources
+        can help you learn quantum concepts, practice with
+        Qiskit, build circuits, and continue developing
+        your understanding beyond Fall Fest.
+
+      </p>
+
+
+      <p>
+
+        You do not need to master everything before joining us.
+        These tools are here for anyone who wants to learn
+        at their own pace and explore quantum computing further.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="resources">
+
+
+      <a
+        class="resource reveal"
+        href="https://quantum.cloud.ibm.com/learning/en"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="resource-top">
+
+          <span class="resource-number">
+            RESOURCE 01
+          </span>
+
+          <span class="resource-arrow">
+            ↗
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            IBM Quantum Learning
+          </h3>
+
+          <p>
+
+            Courses, modules, tutorials, and guided
+            learning materials covering quantum
+            information, algorithms, and Qiskit.
+
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <a
+        class="resource reveal"
+        href="https://quantum.cloud.ibm.com/docs/en/guides"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="resource-top">
+
+          <span class="resource-number">
+            RESOURCE 02
+          </span>
+
+          <span class="resource-arrow">
+            ↗
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Qiskit Guides
+          </h3>
+
+          <p>
+
+            Practical documentation for building,
+            simulating, executing, and analyzing
+            quantum circuits with Qiskit.
+
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <a
+        class="resource reveal"
+        href="https://quantum.cloud.ibm.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="resource-top">
+
+          <span class="resource-number">
+            RESOURCE 03
+          </span>
+
+          <span class="resource-arrow">
+            ↗
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            IBM Quantum Platform
+          </h3>
+
+          <p>
+
+            Explore quantum computing tools,
+            execute circuits, and experiment with
+            quantum workloads and systems.
+
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <a
+        class="resource reveal"
+        href="https://github.com/Qiskit/qiskit"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="resource-top">
+
+          <span class="resource-number">
+            RESOURCE 04
+          </span>
+
+          <span class="resource-arrow">
+            ↗
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Qiskit on GitHub
+          </h3>
+
+          <p>
+
+            Explore Qiskit's open-source code,
+            releases, development, examples,
+            and technical resources.
+
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <a
+        class="resource reveal"
+        href="https://quantum.country/qcvc"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="resource-top">
+
+          <span class="resource-number">
+            RESOURCE 05
+          </span>
+
+          <span class="resource-arrow">
+            ↗
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Quantum Computing for the Very Curious
+          </h3>
+
+          <p>
+
+            An approachable introduction designed
+            to develop intuition about quantum
+            computing concepts interactively.
+
+          </p>
+
+        </div>
+
+      </a>
+
+
+
+      <a
+        class="resource reveal"
+        href="https://qiskit.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="resource-top">
+
+          <span class="resource-number">
+            RESOURCE 06
+          </span>
+
+          <span class="resource-arrow">
+            ↗
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Qiskit
+          </h3>
+
+          <p>
+
+            Explore Qiskit's ecosystem and tools
+            for developing and experimenting
+            with quantum computation.
+
+          </p>
+
+        </div>
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     REGISTER
+     ========================================================= -->
+
+<section
+  class="section rsvp"
+  id="register"
+>
+
+  <div class="container reveal">
+
+    <div class="section-label">
+      Qiskit Fall Fest · OU
+    </div>
+
+
+    <h2>
+      Ready to explore quantum?
+    </h2>
+
+
+    <p>
+
+      Register for Qiskit Fall Fest at the University
+      of Oklahoma and join a community of students
+      interested in learning, experimenting,
+      and exploring quantum technologies.
+
+    </p>
+
+
+    <a
+      class="btn primary"
+      href="https://forms.gle/TqexJjrPTpNmKa6V8"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Register for Fall Fest
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+     ========================================================= -->
+
+<section
+  class="section"
+  id="contact"
+>
+
+  <div class="container">
+
+    <div class="contact-grid">
+
+
+      <div class="contact-copy reveal">
+
+        <div class="section-label">
+          06 / Contact
+        </div>
+
+
+        <h2>
+          Questions?<br>
+          Reach out.
+        </h2>
+
+
+        <p>
+
+          If you have questions about Qiskit Fall Fest,
+          registration, workshops, challenges, or getting
+          involved, feel free to contact our organizing team.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="contact-list reveal">
+
+
+        <a
+          class="contact-item"
+          href="mailto:jiawen.lin-1@ou.edu"
+        >
+
+          <span class="contact-email">
+            jiawen.lin-1@ou.edu
+          </span>
+
+          <span class="contact-arrow">
+            ↗
+          </span>
+
+        </a>
+
+
+
+        <a
+          class="contact-item"
+          href="mailto:isujeremiah@ou.edu"
+        >
+
+          <span class="contact-email">
+            isujeremiah@ou.edu
+          </span>
+
+          <span class="contact-arrow">
+            ↗
+          </span>
+
+        </a>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <span>
+      Qiskit Fall Fest · University of Oklahoma
+    </span>
+
+    <span>
+      Norman · Oklahoma · 2026
+    </span>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+
+  /* SCROLL REVEAL */
+
+  const observer =
+    new IntersectionObserver(
+
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target
+              .classList
+              .add("show");
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold: 0.12
+      }
+
+    );
+
+
+  document
+    .querySelectorAll(".reveal")
+    .forEach((element) => {
+
+      observer.observe(element);
+
+    });
+
+
+
+  /* NAVIGATION BACKGROUND */
+
+  const nav =
+    document.querySelector(".nav");
+
+
+  window.addEventListener(
+    "scroll",
+    () => {
+
+      if (window.scrollY > 30) {
+
+        nav.style.background =
+          "rgba(7,10,13,.93)";
+
+      }
+
+      else {
+
+        nav.style.background =
+          "rgba(7,10,13,.76)";
+
+      }
+
+    }
+  );
+
+
+</script>
+
+
+</body>
+</html>
