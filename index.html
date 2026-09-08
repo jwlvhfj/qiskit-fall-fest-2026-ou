@@ -384,6 +384,24 @@
       background: rgba(220,235,245,.1);
     }
 
+   .hero-badge {
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  object-fit: contain;
+
+  z-index: 10;
+
+  filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.18));
+   }
+
 
     /* HERO CONTENT */
 
@@ -1661,7 +1679,13 @@
 
     <div class="machine-ring ring-3"></div>
 
-    <div class="quantum-chip"></div>
+   <div class="quantum-chip"></div>
+   
+    <img
+  src="qiskit-fall-fest-2026-logo.png"
+  alt="Qiskit Fall Fest 2026"
+  class="hero-badge"
+     >
 
   </div>
 
