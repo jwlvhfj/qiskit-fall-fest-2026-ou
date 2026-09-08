@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -146,30 +146,13 @@
       white-space: nowrap;
     }
 
-    .brand-mark {
-      width: 18px;
-      height: 18px;
-
-      border: 1px solid rgba(230,240,247,.75);
-
-      transform: rotate(45deg);
-
-      position: relative;
+    .brand-logo {
+  width: 120px;
+  height: auto;
+  display: block;
+  object-fit: contain;
     }
-
-    .brand-mark::after {
-      content: "";
-
-      position: absolute;
-
-      width: 6px;
-      height: 6px;
-
-      top: 5px;
-      left: 5px;
-
-      background: rgba(230,240,247,.8);
-    }
+     
 
     .nav-links {
       display: flex;
@@ -1599,7 +1582,11 @@
       class="brand"
     >
 
-      <span class="brand-mark"></span>
+      <img
+  src="ibm-quantum-logo.png"
+  alt="IBM Quantum"
+  class="brand-logo"
+        >
 
       <span>
         QISKIT FALL FEST · OU
