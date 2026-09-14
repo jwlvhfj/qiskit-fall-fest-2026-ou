@@ -874,6 +874,20 @@
       line-height: 1.55;
     }
 
+   .map-link {
+  color: #dfe8ee;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition:
+    color .2s ease,
+    opacity .2s ease;
+}
+
+.map-link:hover {
+  color: #ffffff;
+  opacity: .9;
+}
+
 
     .schedule {
       margin-top: 65px;
@@ -1966,18 +1980,27 @@
 
       <div class="detail-box reveal">
 
-        <div class="detail-label">
-          Venue
-        </div>
+  <div class="detail-label">
+    Venue
+  </div>
 
-        <div class="detail-value">
+  <div class="detail-value">
 
-          Physical Sciences Center<br>
-          Room 108
+    <strong>Physical Sciences Center, Room 108</strong>
+    <br>
 
-        </div>
+    <a
+      href="https://www.google.com/maps/dir/?api=1&destination=601+Elm+Ave+Norman+OK+73019"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="map-link"
+    >
+      601 Elm Ave, Norman, OK 73019 ↗
+    </a>
 
-      </div>
+  </div>
+
+</div>
 
 
 
