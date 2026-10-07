@@ -1489,6 +1489,61 @@
       flex-wrap: wrap;
     }
 
+   
+   /* =========================================================
+   PARTNERS
+   ========================================================= */
+
+.partners {
+  padding: 70px 0;
+  border-top: 1px solid var(--line);
+  background: rgba(255,255,255,.01);
+}
+
+.partners-label {
+  margin-bottom: 38px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.partners-logos {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  flex-wrap: wrap;
+}
+
+.partner {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.partner img {
+  width: auto;
+  height: 70px;
+  max-width: 210px;
+  object-fit: contain;
+  background: #fff;
+  padding: 8px 12px;
+}
+
+.partner span {
+  max-width: 230px;
+  color: #d8e1e6;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .partners-logos {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+  }
+}
 
     /* =========================================================
        ANIMATION
@@ -3010,7 +3065,42 @@
      FOOTER
      ========================================================= -->
 
-<footer>
+<section class="partners">
+  <div class="container">
+
+    <div class="partners-label">
+      Supported by &amp; in partnership with
+    </div>
+
+    <div class="partners-logos">
+
+      <div class="partner">
+        <img
+          src="cqrt-logo.jpeg"
+          alt="OU Center for Quantum Research and Technology"
+        >
+        <span>
+          Center for Quantum Research and Technology
+        </span>
+      </div>
+
+      <div class="partner">
+        <img
+          src="ou-math-logo.png"
+          alt="University of Oklahoma Department of Mathematics"
+        >
+        <span>
+          OU Department of Mathematics
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+ 
+ <footer>
 
   <div class="container footer-inner">
 
