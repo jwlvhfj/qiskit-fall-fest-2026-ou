@@ -692,6 +692,15 @@
   text-transform: uppercase;
 }
 
+   .team-photo-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-bottom: 1px solid var(--line);
+}
+
 .team-info {
   padding: 28px;
 }
@@ -1887,9 +1896,11 @@
 
       <article class="team-card reveal">
 
-        <div class="team-photo">
-          Photo coming soon
-        </div>
+        <img
+  src="jeremiah-isu.png"
+  alt="Jeremiah Isu"
+  class="team-photo-img"
+>
 
         <div class="team-info">
 
